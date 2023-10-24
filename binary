@@ -1,0 +1,20 @@
+def binary_search_range(start, end):
+    if start > end:
+        return []
+
+    mid = (start + end) // 2
+    result = [mid]
+
+    if start == end or start + 1 == end:
+        return result
+
+    left_range = binary_search_range(start, mid - 1)
+    right_range = binary_search_range(mid + 1, end)
+
+    return left_range + result + right_range
+
+start_range = 0 
+end_range =  int(input("enter the ending range")) 
+
+result_range = binary_search_range(start_range, end_range)
+print(result_range)
